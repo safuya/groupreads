@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "groupreads"
+require_relative "../lib/scraper.rb"
+
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
