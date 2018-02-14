@@ -6,7 +6,7 @@ RSpec.describe Scraper do
 
   describe '#scrape_group' do
     it 'is a method that queries the groups show API' do
-      expect(sword_and_laser.current_book).to_eql('A Wrinkle in Time (A Wrinkle in Time Quintet, #1)')
+      expect(sword_and_laser.current_book).to eql('A Wrinkle in Time (A Wrinkle in Time Quintet, #1)')
     end
   end
 
