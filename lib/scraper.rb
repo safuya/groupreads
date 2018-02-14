@@ -11,15 +11,14 @@ class Scraper
   end
 
   def group_show
-    Nokogiri::XML(open(
+    group_show ||= Nokogiri::XML(open(
       "https://www.goodreads.com/group/show/#{self.name}.xml?key=#{self.key}"
     ))
   end
 
   def current_book
     group_details = group_show
-    group_details.xpath('//currently_reading')
-    binding.pry
+    group_show.xpath('//currently_reading/group_book/book/title').text
   end
 
 end
