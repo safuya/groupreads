@@ -3,10 +3,22 @@ require 'spec_helper'
 RSpec.describe Scraper do
 
   let(:sword_and_laser) { Scraper.new('4170-the-sword-and-laser') }
+  let(:suffolk_book_club) { Scraper.new('114317-suffolk-bookclub')}
 
   describe '#current_book' do
     it 'is a method that retrieves the book currently being read' do
-      expect(sword_and_laser.current_book).to eql('A Wrinkle in Time (A Wrinkle in Time Quintet, #1)')
+      snl_books = ['A Wrinkle in Time (A Wrinkle in Time Quintet, #1)']
+      expect(sword_and_laser.current_books).to be(snl_books)
+    end
+
+    it 'returns all books if more than one book is currently being read' do
+      sbc_books = [
+        'Estate Series Box Set',
+        'A Storm of Swords (A Song of Ice and Fire, #3)',
+        'Midnight at the Bright Ideas Bookstore',
+        'Fall of Giants (The Century Trilogy, #1)'
+      ]
+      expect(suffolk_book_club.current_books).to be(sbc_books)
     end
   end
 
