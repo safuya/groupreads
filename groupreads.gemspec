@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "oauth2", "~> 1.4"
+  spec.add_runtime_dependency "oauth", "~> 0.5.4"
   spec.add_runtime_dependency "nokogiri", "~> 1.8.2"
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"

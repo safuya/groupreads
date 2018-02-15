@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Group do
 
   let(:sword_and_laser) { Group.new('4170-the-sword-and-laser') }
-  let(:suffolk_book_club) { Group.new('114317-suffolk-bookclub')}
+  let(:suffolk_book_club) { Group.new('114317-suffolk-bookclub') }
 
   describe '#current_books' do
     it 'is a method that retrieves the book currently being read' do
