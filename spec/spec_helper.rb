@@ -1,6 +1,7 @@
 require "bundler/setup"
 require "groupreads"
-require_relative "../lib/group.rb"
+require "group"
+require "reader"
 
 
 RSpec.configure do |config|

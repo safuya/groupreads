@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
-require 'pry'
 
 class Group
   attr_accessor :name, :key, :current_books
@@ -11,7 +10,7 @@ class Group
   end
 
   def show
-    group_show ||= Nokogiri::XML(open(
+    show ||= Nokogiri::XML(open(
       "https://www.goodreads.com/group/show/#{self.name}.xml?key=#{self.key}"
     ))
   end
