@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Reader do
+RSpec.describe Groupreads::Reader do
   before(:all) do
-    rob = Reader.new('26040396-robert-hughes')
+    rob = Groupreads::Reader.new('26040396-robert-hughes')
     @rob_read = rob.read
   end
 
