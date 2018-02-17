@@ -1,6 +1,5 @@
 require "bundler/setup"
 require "groupreads"
-require "group"
 require "reader"
 
 

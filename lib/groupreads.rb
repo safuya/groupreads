@@ -1,5 +1,5 @@
 require "groupreads/version"
+require "groupreads/group"
 
 module Groupreads
-  # Your code goes here...
 end
