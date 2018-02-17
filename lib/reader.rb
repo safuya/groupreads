@@ -13,11 +13,13 @@ class Reader
 
   def shelf(name)
     res = []
+    puts "Goodreads only allow collection of one page per second. Collecting page 1."
     res << Nokogiri::XML(open(
       "https://www.goodreads.com/review/list/#{self.id}.xml?key=#{self.key}&v=2&shelf=#{name}&page=1"
     ))
     iterations = res[0].xpath('//reviews/@total')[0].value.to_f / 20 - 1
     iterations.ceil.times do |i|
+      puts "Collecting page #{i + 2} of #{iterations.ceil + 1}."
       res << Nokogiri::XML(open(
         "https://www.goodreads.com/review/list/#{self.id}.xml?key=#{self.key}&v=2&shelf=#{name}&page=#{i + 2}"
       ))
@@ -26,7 +28,9 @@ class Reader
   end
 
   def read
-    t = shelf('read').xpath('/title')
+    shelf('read').map do |page|
+      page.xpath('//book/title').map { |book| book.text }
+    end.flatten
   end
 
 end
