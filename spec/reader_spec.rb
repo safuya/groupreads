@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'groupreads'
 
 RSpec.describe Groupreads::Reader do
   before(:all) do
