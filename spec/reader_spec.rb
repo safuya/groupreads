@@ -8,7 +8,7 @@ RSpec.describe Groupreads::Reader do
 
   describe '#read' do
     it 'is a method that returns finished books' do
-      expect(@rob_read).to include('Best Served Cold')
+      expect(@rob_read).to include('The Blade Itself (The First Law, #1)')
     end
 
     it 'returns more than one page of books' do

@@ -8,7 +8,7 @@ module Groupreads
 
     def initialize(user)
       self.username = "robert-hughes"
-      self.id = "26040396"
+      self.id = "77948676"
       self.key = ENV['GOODREADS_KEY']
     end
 
