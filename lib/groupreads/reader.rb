@@ -40,5 +40,9 @@ module Groupreads
       end.flatten
     end
 
+    def all_books
+      read + to_read
+    end
+
   end
 end
