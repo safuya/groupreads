@@ -4,6 +4,7 @@ RSpec.describe Groupreads::Reader do
   before(:all) do
     rob = Groupreads::Reader.new('26040396-robert-hughes')
     @rob_read = rob.read
+    @rob_to_read = rob.to_read
   end
 
   describe '#read' do
@@ -15,4 +16,11 @@ RSpec.describe Groupreads::Reader do
       expect(@rob_read.length).to be > 20
     end
   end
+
+  describe '#to_read' do
+    it 'is a method that returns to-read books' do
+      expect(@rob_to_read).to include('Simon vs. the Homo Sapiens Agenda')
+    end
+  end
+
 end
