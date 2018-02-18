@@ -34,5 +34,11 @@ module Groupreads
       end.flatten
     end
 
+    def to_read
+      shelf('to-read').map do |page|
+        page.xpath('//book/title').map { |book| book.text }
+      end.flatten
+    end
+
   end
 end
