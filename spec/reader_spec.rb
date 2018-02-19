@@ -1,7 +1,7 @@
 require 'groupreads'
 
 RSpec.describe Groupreads::Reader do
-  let(:rob) { Groupreads::Reader.new('26040396-robert-hughes') }
+  let(:rob) { Groupreads::Reader.new('77948676-robert-hughes') }
   let(:jim) { Groupreads::Reader.new('12345678-jim-evans') }
 
   describe '#username' do
@@ -13,14 +13,14 @@ RSpec.describe Groupreads::Reader do
 
   describe "#id" do
     it 'returns the id and exists on init' do
-      expect(rob.id).to eql('26040396')
+      expect(rob.id).to eql('77948676')
       expect(jim.id).to eql('12345678')
     end
   end
 
   describe '#read' do
     before(:all) do
-      robert = Groupreads::Reader.new('26040396-robert-hughes')
+      robert = Groupreads::Reader.new('77948676-robert-hughes')
       @rob_read = robert.read
     end
 
