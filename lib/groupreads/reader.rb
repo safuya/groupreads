@@ -6,8 +6,8 @@ module Groupreads
     attr_accessor :username, :id, :key
 
     def initialize(user)
-      self.username = "robert-hughes"
-      self.id = "77948676"
+      self.username = user[/\w+-\w+$/]
+      self.id = user[/\d+/]
       self.key = ENV['GOODREADS_KEY']
     end
 

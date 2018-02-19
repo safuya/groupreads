@@ -5,9 +5,16 @@ RSpec.describe Groupreads::Reader do
   let(:jim) { Groupreads::Reader.new('12345678-jim-evans') }
 
   describe '#username' do
-    it 'is is created on initialisation' do
+    it 'returns the username and exists on init' do
       expect(rob.username).to eql('robert-hughes')
       expect(jim.username).to eql('jim-evans')
+    end
+  end
+
+  describe "#id" do
+    it 'returns the id and exists on init' do
+      expect(rob.id).to eql('26040396')
+      expect(jim.id).to eql('12345678')
     end
   end
 
