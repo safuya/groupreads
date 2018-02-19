@@ -5,16 +5,16 @@ Feature: Groupreads
 
   Scenario: Add a new user
     When I run `groupreads register 26040396-robert-hughes`
-    Then the output should include "added"
+    Then the output should contain "added"
 
   Scenario: Search for groups
     When I run `groupreads findgroup suffolk`
-    Then the output should include "114317-suffolk-bookclub"
+    Then the output should contain "114317-suffolk-bookclub"
 
   Scenario: Add a group
     When I run `groupreads addgroup 114317-suffolk-bookclub`
-    Then the output should include "added"
+    Then the output should contain "added"
 
   Scenario: List new group books to read
     When I run `groupreads new`
-    Then the output should include "Your new books are"
+    Then the output should contain "Your new books are"
