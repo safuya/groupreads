@@ -48,4 +48,11 @@ RSpec.describe Groupreads::Reader do
     end
   end
 
+  describe '#list_groups' do
+    it 'returns all groups the user is a member of' do
+      groups = rob.list_groups
+      expect(groups).to include('4170-the-sword-and-laser')
+    end
+  end
+
 end

@@ -7,13 +7,9 @@ Feature: Groupreads
     When I run `groupreads register 26040396-robert-hughes`
     Then the output should contain "added"
 
-  Scenario: Search for groups
-    When I run `groupreads findgroup suffolk`
+  Scenario: List groups the user is a member of
+    When I run `groupreads listgroups`
     Then the output should contain "114317-suffolk-bookclub"
-
-  Scenario: Add a group
-    When I run `groupreads addgroup 114317-suffolk-bookclub`
-    Then the output should contain "added"
 
   Scenario: List new group books to read
     When I run `groupreads new`
