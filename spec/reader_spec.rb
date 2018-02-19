@@ -2,6 +2,14 @@ require 'groupreads'
 
 RSpec.describe Groupreads::Reader do
   let(:rob) { Groupreads::Reader.new('26040396-robert-hughes') }
+  let(:jim) { Groupreads::Reader.new('12345678-jim-evans') }
+
+  describe '#username' do
+    it 'is is created on initialisation' do
+      expect(rob.username).to eql('robert-hughes')
+      expect(jim.username).to eql('jim-evans')
+    end
+  end
 
   describe '#read' do
     before(:all) do
