@@ -1,7 +1,6 @@
 require 'thor'
 require 'json'
 require 'groupreads'
-require 'pry'
 
 module Groupreads
   class CLI < Thor
