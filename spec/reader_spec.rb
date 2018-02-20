@@ -55,4 +55,22 @@ RSpec.describe Groupreads::Reader do
     end
   end
 
+  describe '#group_books' do
+    it 'returns the sum of all currently reading books for the users groups' do
+      books = rob.group_books
+      expect(books).to include(
+        'A Wrinkle in Time (A Wrinkle in Time Quintet, #1)'
+      )
+    end
+  end
+
+  describe '#new_books' do
+    it 'returns all groups currently reading books not in all_books' do
+      new_books = rob.new_books
+      expect(new_books).to include(
+        'A Wrinkle in Time (A Wrinkle in Time Quintet, #1)'
+      )
+    end
+  end
+
 end

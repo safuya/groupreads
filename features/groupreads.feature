@@ -12,5 +12,5 @@ Feature: Groupreads
     Then the output should contain "114317-suffolk-bookclub"
 
   Scenario: List new group books to read
-    When I run `groupreads new`
+    When I run `groupreads newbooks`
     Then the output should contain "Your new books are"

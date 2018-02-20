@@ -19,6 +19,13 @@ module Groupreads
       @reader.list_groups.each { |group| puts group }
     end
 
+    desc "newbooks", "List new books not on your to-read or read lists"
+    def newbooks
+      read_config
+      puts "Your new books are:"
+      @reader.new_books.each { |book| puts book }
+    end
+
     private
 
     CONFIG_FILE = "#{ENV['HOME']}/.groupreads.conf"

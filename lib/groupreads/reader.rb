@@ -62,6 +62,17 @@ module Groupreads
         end
       end.flatten      
     end
+
+    def group_books
+      list_groups.map do |group|
+        g = Groupreads::Group.new(group)
+        g.current_books
+      end.flatten
+    end
+
+    def new_books
+      group_books - all_books
+    end
     
   end
 end
