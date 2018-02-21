@@ -12,19 +12,26 @@ module Groupreads
     end
 
     def shelf(name)
-      res = []
       base_path = "https://www.goodreads.com/review/list/#{self.id}.xml"
+      results(base_path, {key: self.key, v: 2, shelf: name})
+    end
+
+    def results(base_path, attributes)
+      res = []
       puts "Goodreads only allow collection of one page per second. Collecting page 1."
       res << Nokogiri::XML(open(
-        build_url(base_path, {key: self.key, v: 2, shelf: name})
+        build_url(base_path, attributes)
       ))
+
       iterations = res[0].xpath('//reviews/@total')[0].value.to_f / 20 - 1
       iterations.ceil.times do |i|
         puts "Collecting page #{i + 2} of #{iterations.ceil + 1}."
+        attributes[:page] = i + 2
         res << Nokogiri::XML(open(
-          build_url(base_path, {key: self.key, v: 2, shelf: name, page: i + 2})
+          build_url(base_path, attributes)
         ))
       end
+
       res
     end
 
