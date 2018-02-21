@@ -3,7 +3,7 @@ require 'nokogiri'
 
 module Groupreads
   class Reader
-    attr_accessor :username, :id, :key, :read, :to_read
+    attr_accessor :username, :id, :key
 
     def initialize(user)
       self.username = user[/\w+-\w+$/]
@@ -63,7 +63,7 @@ module Groupreads
     end
 
     def group_books
-      list_groups.map do |group|
+      @group_books ||= list_groups.map do |group|
         g = Groupreads::Group.new(group)
         g.current_books
       end.flatten
