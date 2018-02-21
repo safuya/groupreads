@@ -13,17 +13,19 @@ module Groupreads
 
     def shelf(name)
       base_path = "https://www.goodreads.com/review/list/#{self.id}.xml"
-      results(base_path, {key: self.key, v: 2, shelf: name})
+      attributes = {key: self.key, v: 2, shelf: name}
+      root = "reviews"
+      results(base_path, attributes, root)
     end
 
-    def results(base_path, attributes)
+    def results(base_path, attributes, root)
       res = []
       puts "Goodreads only allow collection of one page per second. Collecting page 1."
       res << Nokogiri::XML(open(
         build_url(base_path, attributes)
       ))
 
-      iterations = res[0].xpath('//reviews/@total')[0].value.to_f / 20 - 1
+      iterations = res[0].xpath("//#{root}/@total")[0].value.to_f / 20 - 1
       iterations.ceil.times do |i|
         puts "Collecting page #{i + 2} of #{iterations.ceil + 1}."
         attributes[:page] = i + 2
@@ -56,21 +58,13 @@ module Groupreads
         return @list_groups
       end
       
-      res = []
-      base_url = "https://www.goodreads.com/group/list/#{self.id}.xml"
+      base_path = "https://www.goodreads.com/group/list/#{self.id}.xml"
+      attributes = {key: self.key}
+      root = "list"
+      
+      results(base_path, attributes, root)
 
-      res << Nokogiri::XML(open(
-        build_url(base_url, {key: self.key})
-      ))
-      iterations = res[0].xpath('//list/@total')[0].value.to_f / 20 - 1
-      iterations.ceil.times do |i|
-        puts "Collecting page #{i + 2} of #{iterations.ceil + 1}."
-        res << Nokogiri::XML(open(
-          build_url(base_url, {key: self.key, page: i + 2})
-        ))
-      end
-
-      @list_groups = res.map do |groups|
+      @list_groups = results(base_path, attributes, root).map do |groups|
         groups.xpath('//group/link').map do |group|
           group.text.gsub('https://www.goodreads.com/group/show/', '')
         end
