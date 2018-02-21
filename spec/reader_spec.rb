@@ -46,14 +46,14 @@ RSpec.describe Groupreads::Reader do
 
   describe '#list_groups' do
     it 'returns all groups the user is a member of' do
-      expect(@rob.list_groups).to include('4170-the-sword-and-laser')
+      expect(@rob.list_groups).to include('505999-groupreads-test')
     end
   end
 
   describe '#group_books' do
     it 'returns the sum of all currently reading books for the users groups' do
       expect(@rob.group_books).to include(
-        'A Wrinkle in Time (A Wrinkle in Time Quintet, #1)'
+        'The Man in the High Castle'
       )
     end
   end
@@ -61,7 +61,7 @@ RSpec.describe Groupreads::Reader do
   describe '#new_books' do
     it 'returns all groups currently reading books not in all_books' do
       expect(@rob.new_books).to include(
-        'A Wrinkle in Time (A Wrinkle in Time Quintet, #1)'
+        'The Man in the High Castle'
       )
     end
   end
