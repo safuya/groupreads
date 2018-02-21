@@ -44,7 +44,11 @@ module Groupreads
     end
 
     def list_groups
-      res = []
+      if @list_groups
+        return @list_groups
+      else
+        res = []
+      end
       res << Nokogiri::XML(open(
         "https://www.goodreads.com/group/list/#{self.id}.xml?key=#{self.key}"
       ))
@@ -55,7 +59,7 @@ module Groupreads
           "https://www.goodreads.com/group/list/#{self.id}.xml?key=#{self.key}&page=#{i + 2}"
         ))
       end
-      res.map do |groups|
+      @list_groups = res.map do |groups|
         groups.xpath('//group/link').map do |group|
           group.text.gsub('https://www.goodreads.com/group/show/', '')
         end
