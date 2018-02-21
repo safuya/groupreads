@@ -54,9 +54,7 @@ module Groupreads
     end
 
     def list_groups
-      if @list_groups
-        return @list_groups
-      end
+      return @list_groups if @list_groups
       
       base_path = "https://www.goodreads.com/group/list/#{self.id}.xml"
       attributes = {key: self.key}
