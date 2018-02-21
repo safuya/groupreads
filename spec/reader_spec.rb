@@ -19,24 +19,18 @@ RSpec.describe Groupreads::Reader do
   end
 
   describe '#read' do
-    before(:all) do
-      robert = Groupreads::Reader.new('77948676-robert-hughes')
-      @rob_read = robert.read
-    end
-
     it 'is a method that returns finished books' do
-      expect(@rob_read).to include('The Blade Itself (The First Law, #1)')
+      expect(rob.read).to include('The Blade Itself (The First Law, #1)')
     end
 
     it 'returns more than one page of books' do
-      expect(@rob_read.length).to be > 20
+      expect(rob.read.length).to be > 20
     end
   end
 
   describe '#to_read' do
     it 'is a method that returns to-read books' do
-      rob_to_read = rob.to_read
-      expect(rob_to_read).to include('Simon vs. the Homo Sapiens Agenda')
+      expect(rob.to_read).to include('Simon vs. the Homo Sapiens Agenda')
     end
   end
 
@@ -50,15 +44,13 @@ RSpec.describe Groupreads::Reader do
 
   describe '#list_groups' do
     it 'returns all groups the user is a member of' do
-      groups = rob.list_groups
-      expect(groups).to include('4170-the-sword-and-laser')
+      expect(rob.list_groups).to include('4170-the-sword-and-laser')
     end
   end
 
   describe '#group_books' do
     it 'returns the sum of all currently reading books for the users groups' do
-      books = rob.group_books
-      expect(books).to include(
+      expect(rob.group_books).to include(
         'A Wrinkle in Time (A Wrinkle in Time Quintet, #1)'
       )
     end
@@ -66,8 +58,7 @@ RSpec.describe Groupreads::Reader do
 
   describe '#new_books' do
     it 'returns all groups currently reading books not in all_books' do
-      new_books = rob.new_books
-      expect(new_books).to include(
+      expect(rob.new_books).to include(
         'A Wrinkle in Time (A Wrinkle in Time Quintet, #1)'
       )
     end

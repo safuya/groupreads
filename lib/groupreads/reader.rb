@@ -3,7 +3,7 @@ require 'nokogiri'
 
 module Groupreads
   class Reader
-    attr_accessor :username, :id, :key
+    attr_accessor :username, :id, :key, :read, :to_read
 
     def initialize(user)
       self.username = user[/\w+-\w+$/]
@@ -28,13 +28,13 @@ module Groupreads
     end
 
     def read
-      shelf('read').map do |page|
+      @read ||= shelf('read').map do |page|
         page.xpath('//book/title').map { |book| book.text }
       end.flatten
     end
 
     def to_read
-      shelf('to-read').map do |page|
+      @to_read ||= shelf('to-read').map do |page|
         page.xpath('//book/title').map { |book| book.text }
       end.flatten
     end
