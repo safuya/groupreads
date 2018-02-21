@@ -59,8 +59,6 @@ module Groupreads
       base_path = "https://www.goodreads.com/group/list/#{self.id}.xml"
       attributes = {key: self.key}
       root = "list"
-      
-      results(base_path, attributes, root)
 
       @list_groups = results(base_path, attributes, root).map do |groups|
         groups.xpath('//group/link').map do |group|
