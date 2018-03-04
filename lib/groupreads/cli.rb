@@ -25,7 +25,7 @@ module Groupreads
     
     desc "register USER", "Adds a user from id-user-name"
     def register(name)
-      @@reader = Groupreads::Reader.new(name)
+      @@reader = Reader.new(name)
       write_config
       puts "#{@@reader.username} added."
     end
@@ -62,7 +62,7 @@ module Groupreads
       begin
         file = File.read(CONFIG_FILE)
         config = JSON.parse(file)
-        @@reader = Groupreads::Reader.new("#{config['id']}-#{config['username']}")
+        @@reader = Reader.new("#{config['id']}-#{config['username']}")
       rescue Errno::ENOENT
         puts "No config file. Run groupreads register USER"
       rescue JSON::ParserError

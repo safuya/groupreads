@@ -40,7 +40,7 @@ module Groupreads
     def read
       @read ||= shelf('read').map do |page|
         page.xpath('//book').map do |book|
-          Groupreads::Book.new_from_shelf(book)
+          Book.new_from_shelf(book)
         end
       end.flatten
     end
@@ -48,7 +48,7 @@ module Groupreads
     def to_read
       @to_read ||= shelf('to-read').map do |page|
         page.xpath('//book').map do |book|
-          Groupreads::Book.new_from_shelf(book)
+          Book.new_from_shelf(book)
         end
       end.flatten
     end
@@ -78,7 +78,7 @@ module Groupreads
 
     def group_books
       @group_books ||= list_groups.map do |group|
-        g = Groupreads::Group.new(group)
+        g = Group.new(group)
         g.current_books
       end.flatten
     end
