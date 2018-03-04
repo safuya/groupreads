@@ -22,7 +22,7 @@ module Groupreads
     def newbooks
       read_config
       puts "Your new books are:"
-      @reader.new_books.each { |book| puts book }
+      @reader.new_books.each_with_index { |book, i| puts "#{i + 1}. #{book}" }
     end
 
     private

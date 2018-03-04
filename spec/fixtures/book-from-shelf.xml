@@ -1,0 +1,45 @@
+<book>
+  <id type="integer">7907805</id>
+  <isbn>0971407614</isbn>
+  <isbn13>9780971407619</isbn13>
+  <text_reviews_count type="integer">147</text_reviews_count>
+  <uri>kca://book/amzn1.gr.book.v1.fWIaq3OM2tlqrNFfUZ_uww</uri>
+  <title>You Are Your Own Gym: The Bible Of Bodyweight Exercises For Men And Women</title>
+  <title_without_series>You Are Your Own Gym: The Bible Of Bodyweight Exercises For Men And Women</title_without_series>
+  <image_url>https://images.gr-assets.com/books/1299667053m/7907805.jpg</image_url>
+  <small_image_url>https://images.gr-assets.com/books/1299667053s/7907805.jpg</small_image_url>
+  <large_image_url/>
+  <link>https://www.goodreads.com/book/show/7907805-you-are-your-own-gym</link>
+  <num_pages/>
+  <format/>
+  <edition_information/>
+  <publisher/>
+  <publication_day/>
+  <publication_year/>
+  <publication_month/>
+  <average_rating>3.98</average_rating>
+  <ratings_count>2974</ratings_count>
+  <description>Providing the only exercise equipment anyone will ever need again, this guide presents to the public, for the first time, the most elite Special Operations fitness exercises to fit their schedule and their wallet. Providing the most effective, efficient, inexpensive, and convenient routine for exercise available, this simple program requires no gym or weights—only the human body. For thousands of years—from Ancient Greece’s Olympic athletes to tomorrow’s U.S. Special Forces—humanity’s greatest physical specimens have not relied on fitness centers or dumbbells, but have rather utilized their own bodies as the most advanced fitness machines ever created. These 107 exercises are presented in a clear, concise, and complete manner for men and women of all athletic ability levels.</description>
+  <authors>
+    <author>
+      <id>3437123</id>
+      <name>Mark Lauren</name>
+      <role/>
+      <image_url nophoto="true">
+        <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png]]>
+      </image_url>
+      <small_image_url nophoto="true">
+        <![CDATA[https://s.gr-assets.com/assets/nophoto/user/u_50x66-632230dc9882b4352d753eedf9396530.png]]>
+      </small_image_url>
+      <link><![CDATA[https://www.goodreads.com/author/show/3437123.Mark_Lauren]]></link>
+      <average_rating>3.98</average_rating>
+      <ratings_count>3365</ratings_count>
+      <text_reviews_count>241</text_reviews_count>
+    </author>
+  </authors>
+  <published/>
+  <work>
+    <id>11176085</id>
+    <uri>kca://work/amzn1.gr.work.v1.LpBiJ_pCgR74fp-OH_5RtQ</uri>
+  </work>
+</book>

@@ -22,7 +22,8 @@ RSpec.describe Groupreads::Reader do
 
   describe '#read' do
     it 'is a method that returns finished books' do
-      expect(@rob.read).to include('The Blade Itself (The First Law, #1)')
+      rob_read = @rob.read.map { |book| book.title }
+      expect(rob_read).to include('The Blade Itself (The First Law, #1)')
     end
 
     it 'returns more than one page of books' do
@@ -32,13 +33,14 @@ RSpec.describe Groupreads::Reader do
 
   describe '#to_read' do
     it 'is a method that returns to-read books' do
-      expect(@rob.to_read).to include('Simon vs. the Homo Sapiens Agenda')
+      rob_to_read = @rob.to_read.map { |book| book.title }
+      expect(rob_to_read).to include('Simon vs. the Homo Sapiens Agenda')
     end
   end
 
   describe '#all_books' do
     it 'is a method that returns all finished and to-read books' do
-      all_books = @rob.all_books
+      all_books = @rob.all_books.map { |book| book.title }
       expect(all_books).to include('The Blade Itself (The First Law, #1)')
       expect(all_books).to include('Simon vs. the Homo Sapiens Agenda')
     end

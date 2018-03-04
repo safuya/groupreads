@@ -39,13 +39,17 @@ module Groupreads
 
     def read
       @read ||= shelf('read').map do |page|
-        page.xpath('//book/title').map { |book| book.text }
+        page.xpath('//book').map do |book|
+          Groupreads::Book.new_from_shelf(book)
+        end
       end.flatten
     end
 
     def to_read
       @to_read ||= shelf('to-read').map do |page|
-        page.xpath('//book/title').map { |book| book.text }
+        page.xpath('//book').map do |book|
+          Groupreads::Book.new_from_shelf(book)
+        end
       end.flatten
     end
 
@@ -64,7 +68,7 @@ module Groupreads
         groups.xpath('//group/link').map do |group|
           group.text.gsub('https://www.goodreads.com/group/show/', '')
         end
-      end.flatten      
+      end.flatten
     end
 
     def build_url(base_path, params)
