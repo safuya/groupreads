@@ -20,7 +20,7 @@ module Groupreads
 
     def results(base_path, attributes, root)
       res = []
-      puts "Goodreads only allow collection of one page per second. Collecting page 1."
+      puts "Goodreads limits to one page per second. Collecting page 1."
       res << Nokogiri::XML(open(
         build_url(base_path, attributes)
       ))
