@@ -44,4 +44,14 @@ RSpec.describe Groupreads::Book do
     end
   end
 
+  describe '.new_from_group' do
+    it "creates a book from Nokogiri's xml in a group" do
+      nokobooki = Nokogiri::XML(open("spec/fixtures/book-from-group.xml"))
+      high_castle = Groupreads::Book.new_from_group(nokobooki.xpath('book'))
+      expect(high_castle.title).to eql("The Man in the High Castle")
+      expect(high_castle.id).to eql("216363")
+      expect(high_castle.author).to eql("Philip K. Dick")
+    end
+  end
+
 end

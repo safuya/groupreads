@@ -28,5 +28,14 @@ module Groupreads
       ))
     end
 
+    def self.new_from_group(nokobooki)
+      book = new(nokobooki.xpath('title').text)
+      book.id = nokobooki.xpath('id').text
+      book.description = nokobooki.xpath('description').text
+      book.average_rating = nokobooki.xpath('average_rating').text.to_f
+      book.author = nokobooki.xpath('author/name').text
+      book
+    end
+
   end
 end

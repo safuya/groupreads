@@ -1,0 +1,10 @@
+<book>
+  <id type="integer">216363</id>
+  <title>The Man in the High Castle</title>
+  <publication_year type="integer">1992</publication_year>
+  <author>
+    <id type="integer">4764</id>
+    <name>Philip K. Dick</name>
+    <user_id type="integer" nil="true"/>
+  </author>
+</book>

@@ -7,7 +7,8 @@ RSpec.describe Groupreads::Group do
   describe '#current_books' do
     it 'is a method that retrieves all books currently being read' do
       books = ['The Man in the High Castle', 'Aeneid']
-      expect(test_group.current_books).to eql(books)
+      group_books = test_group.current_books.map { |book| book.title }
+      expect(group_books).to eql(books)
     end
   end
 

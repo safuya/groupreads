@@ -17,8 +17,8 @@ module Groupreads
     end
 
     def current_books
-      show.xpath('//currently_reading/group_book/book/title').map do |cr|
-        cr.text
+      show.xpath('//currently_reading/group_book/book').map do |book|
+        book = Groupreads::Book.new_from_group(book)
       end
     end
 
