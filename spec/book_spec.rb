@@ -32,14 +32,6 @@ RSpec.describe Groupreads::Book do
     end
   end
 
-  describe '.new_by_id' do
-    it 'instantiates a new book by id' do
-      daniels_running_formula = Groupreads::Book.new_by_id("20762026")
-      expect(daniels_running_formula.title).to eql("Daniels' Running Formula")
-      expect(daniels_running_formula.average_rating).to eql(4.18)
-    end
-  end
-
   describe '.new_from_shelf' do
     it "creates a book from Nokogiri's xml in a shelf" do
       nokobooki = Nokogiri::XML(open("spec/fixtures/book-from-shelf.xml"))

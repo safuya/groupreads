@@ -1,5 +1,4 @@
 module Groupreads
-
   class Book
     attr_accessor :id, :title, :author, :description, :average_rating, :readers
     KEY = ENV['GOODREADS_KEY']
@@ -7,30 +6,6 @@ module Groupreads
     def initialize(title)
       self.title = title
       self.readers = []
-    end
-
-    def self.new_by_id(id)
-      details = get_xml_by_id(id)
-      book = new(details[:title])
-      book.id = details[:id]
-      book.description = details[:description]
-      book.average_rating = details[:average_rating]
-      book.author = details[:author]
-      book
-    end
-
-    def self.get_xml_by_id(id)
-      base_path = "https://www.goodreads.com/book/show/#{id}.xml"
-      attributes = {key: KEY}
-      xml = results(base_path, attributes)
-      book = xml.xpath('//book')[0]
-      details = {}
-      details[:title] = book.xpath('title').text
-      details[:id] = id
-      details[:description] = book.xpath('description').text
-      details[:average_rating] = book.xpath('average_rating').text.to_f
-      details[:author] = book.xpath('//author/name')[0].text
-      details
     end
 
     def self.new_from_shelf(nokobooki)
@@ -54,5 +29,4 @@ module Groupreads
     end
 
   end
-
 end
