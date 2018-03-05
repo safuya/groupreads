@@ -47,14 +47,19 @@ groupreads register 26040396-robert-hughes
 ### List groups the user is a member of
 Run `groupreads listgroups`
 The output will be a list of books, one per line, such as:
->> 114317-suffolk-bookclub
+> 114317-suffolk-bookclub
 
 ### List new group books to read
 Run `groupreads newbooks`
 The output should contain your new books to add in the form:
->> Your new books are:
-   Ninja's and Elephants
-   The Secret World of the Cheesecake
+> Your new books are:
+>  Ninja's and Elephants
+>  The Secret World of the Cheesecake
+You will then have the option of viewing more details on an individual book.
+
+### Interactive mode
+Run `groupreads interactive`
+You will be provided with an interactive prompt for the above commands.
 
 ## Development
 
