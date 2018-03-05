@@ -41,9 +41,13 @@ module Groupreads
       read_config
       books = @@reader.new_books
       puts "Your new books are:"
-      books.each { |book| puts book }
-      book_choices = ["no"] + books
+      book_titles = books.map { |book| book.title }
+      book_choices = ["no"] + book_titles
       book_choice = ask("View details for a book?\n", limited_to: book_choices)
+      unless book_choice == "no"
+        book = Book.find_or_create_by_title(book_choice)
+        book.put_details
+      end
       books
     end
 

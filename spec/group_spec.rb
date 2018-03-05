@@ -10,6 +10,13 @@ RSpec.describe Groupreads::Group do
       group_books = test_group.current_books.map { |book| book.title }
       expect(group_books).to eql(books)
     end
+
+    it 'returns all the correct details for a book' do
+      book = test_group.current_books.first
+      expect(book.title).to eql("The Man in the High Castle")
+      expect(book.id).to eql("216363")
+      expect(book.author).to eql("Philip K. Dick")
+    end
   end
 
 end

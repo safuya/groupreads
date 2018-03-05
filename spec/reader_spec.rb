@@ -54,15 +54,17 @@ RSpec.describe Groupreads::Reader do
 
   describe '#group_books' do
     it 'returns the sum of all currently reading books for the users groups' do
-      expect(@rob.group_books).to include(
-        'The Man in the High Castle'
-      )
+      groupbook = @rob.group_books.first
+      expect(groupbook.title).to eql('The Man in the High Castle')
+      expect(groupbook.id).to eql('216363')
+      expect(groupbook.author).to eql('Philip K. Dick')
     end
   end
 
   describe '#new_books' do
     it 'returns all groups currently reading books not in all_books' do
-      expect(@rob.new_books).to include(
+      newbooks = @rob.new_books.map { |book| book.title }
+      expect(newbooks).to include(
         'The Man in the High Castle'
       )
     end

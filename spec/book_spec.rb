@@ -2,40 +2,10 @@ require 'groupreads'
 
 RSpec.describe Groupreads::Book do
 
-  let(:test_book) { Groupreads::Book.new('The Wind In The Willows') }
-
-  describe '#title' do
-    it 'has a title' do
-      expect(test_book.title).to eql('The Wind In The Willows')
-    end
-  end
-
-  describe '#author' do
-    it 'can have an author' do
-      test_book.author = 'Kenneth Grahame'
-      expect(test_book.author).to eql('Kenneth Grahame')
-    end
-  end
-
-  describe '#description' do
-    it 'has a description' do
-      description = "Meet little Mole, willful Ratty, Badger the perennial bachelor, and petulant Toad."
-      test_book.description = description
-      expect(test_book.description).to eql(description)
-    end
-  end
-
-  describe '#average_rating' do
-    it 'has an average rating' do
-      test_book.average_rating = 3.98
-      expect(test_book.average_rating).to eql(3.98)
-    end
-  end
-
-  describe '.new_from_shelf' do
+  describe '.find_or_create_from_shelf' do
     it "creates a book from Nokogiri's xml in a shelf" do
       nokobooki = Nokogiri::XML(open("spec/fixtures/book-from-shelf.xml"))
-      yayog = Groupreads::Book.new_from_shelf(nokobooki.xpath('book'))
+      yayog = Groupreads::Book.find_or_create_from_shelf(nokobooki.xpath('book'))
       expect(yayog.title).to eql("You Are Your Own Gym: The Bible Of Bodyweight Exercises For Men And Women")
       expect(yayog.id).to eql("7907805")
       expect(yayog.average_rating).to eql(3.98)
@@ -44,13 +14,26 @@ RSpec.describe Groupreads::Book do
     end
   end
 
-  describe '.new_from_group' do
+  describe '.find_or_create_from_group' do
     it "creates a book from Nokogiri's xml in a group" do
       nokobooki = Nokogiri::XML(open("spec/fixtures/book-from-group.xml"))
-      high_castle = Groupreads::Book.new_from_group(nokobooki.xpath('book'))
+      high_castle = Groupreads::Book.find_or_create_from_group(nokobooki.xpath('book'))
       expect(high_castle.title).to eql("The Man in the High Castle")
       expect(high_castle.id).to eql("216363")
       expect(high_castle.author).to eql("Philip K. Dick")
+    end
+  end
+
+  describe '.find_or_create_by_title' do
+    it "creates a book if it's not already created" do
+      ted = Groupreads::Book.find_or_create_by_title("Ted")
+      expect(ted.title).to eql("Ted")
+    end
+
+    it "returns a book if it's already been created" do
+      ted = Groupreads::Book.find_or_create_by_title("Ted")
+      ted_clone = Groupreads::Book.find_or_create_by_title("Ted")
+      expect(ted).to be(ted_clone)
     end
   end
 

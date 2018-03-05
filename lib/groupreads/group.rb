@@ -18,7 +18,7 @@ module Groupreads
 
     def current_books
       show.xpath('//currently_reading/group_book/book').map do |book|
-        book = Book.new_from_group(book)
+        book = Book.find_or_create_from_group(book)
       end
     end
 
