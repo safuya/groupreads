@@ -7,7 +7,7 @@ list.
 All data received from this gem comes from Goodreads. All data is available on
 [Goodreads](https://www.goodreads.com).
 
-A [demo](https://www.youtube.com/watch?v=svPbcjdBXr8&t=2s) is available [here](https://www.youtube.com/watch?v=svPbcjdBXr8&t=2s).
+A demo is available [here](https://www.youtube.com/watch?v=svPbcjdBXr8&t=2s). A blog post about the development process for this gem is available [here](http://safuya.info/groupreads).
 
 ## Installation
 
